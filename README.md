@@ -3,6 +3,8 @@ Passo a passo como instalar o N8N e Evolution API no Easypanel
 
 Recomendamos começar a instalação pela Evolution API.
 
+## Evolution API
+
 > [!NOTE]
 > Procure pelo template "Evolution API" no Easypanel. Serão instalados a Evolution API, Postgres e o Redis.
 
@@ -194,5 +196,40 @@ PROXY_PORT=80
 PROXY_PROTOCOL=http
 PROXY_USERNAME=
 PROXY_PASSWORD=
+```
+
+## N8N ( Modo Fila )
+
+1. **Instale o editor**
+
+```json
+{
+  "services": [
+    {
+      "type": "app",
+      "data": {
+        "projectName": "n8n_start",
+        "serviceName": "n8n_start",
+        "source": {
+          "type": "image",
+          "image": "n8nio/n8n:latest"
+        },
+        "domains": [
+          {
+            "host": "$(EASYPANEL_DOMAIN)",
+            "port": 5678
+          }
+        ],
+        "env": "N8N_ENCRYPTION_KEY=qwSYwLlijZOh+FaBHrK0tfGzxG6W/J4O",
+         "deploy": {
+                  "replicas": 1,
+                  "command": "n8n start",
+                  "zeroDowntime": true
+        },
+        "mounts": []
+      }
+    }
+  ]
+}
 ```
 
