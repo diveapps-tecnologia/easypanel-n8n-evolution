@@ -5,7 +5,7 @@ Recomendamos começar a instalação pela Evolution API.
 
 ## Evolution API
 
-> [!NOTA]
+> [!NOTE]
 > Procure pelo template "Evolution API" no Easypanel. Serão instalados a Evolution API, Postgres e o Redis.
 
 No Easypanel, selecione em Service **evolution-api** e depois **Enviroment**. Copie e cole as variáveis de ambiente abaixo:
