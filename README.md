@@ -9,7 +9,7 @@ Recomendamos começar a instalação pela Evolution API.
 No Easypanel, selecione em Service **evolution-api** e depois **Enviroment**. Copie e cole as variáveis de ambiente abaixo:
 
 ### Variáveis de ambiente **evolution-api**
-
+```
 SERVER_TYPE=http
 SERVER_PORT=8080
 SERVER_URL=https://$(PRIMARY_DOMAIN)
@@ -194,5 +194,5 @@ PROXY_PORT=80
 PROXY_PROTOCOL=http
 PROXY_USERNAME=
 PROXY_PASSWORD=
-
+```
 
