@@ -200,7 +200,7 @@ PROXY_PASSWORD=
 
 ## N8N ( Modo Fila )
 
-1. **Instale o editor**
+1. **Instale o editor do N8N**
 
 ```json
 {
@@ -220,12 +220,78 @@ PROXY_PASSWORD=
             "port": 5678
           }
         ],
-        "env": "N8N_ENCRYPTION_KEY=qwSYwLlijZOh+FaBHrK0tfGzxG6W/J4O",
+        "env": "N8N_ENCRYPTION_KEY=5c6f7d37-903d-49d8-b73c-def95eb72243",
          "deploy": {
                   "replicas": 1,
                   "command": "n8n start",
                   "zeroDowntime": true
         },
+        "mounts": []
+      }
+    }
+  ]
+}
+```
+
+2. **Instale o webhook do N8N**
+
+```json
+{
+  "services": [
+    {
+      "type": "app",
+      "data": {
+        "projectName": "n8n_webhook",
+        "serviceName": "n8n_webhook",
+        "source": {
+          "type": "image",
+          "image": "n8nio/n8n:latest"
+        },
+        "domains": [
+          {
+            "host": "$(EASYPANEL_DOMAIN)",
+            "port": 5678
+          }
+        ],
+        "env": "N8N_ENCRYPTION_KEY=qwSYwLlijZOh+FaBHrK0tfGzxG6W/J4O",
+         "deploy": {
+          "replicas": 1,
+          "command": "n8n webhook",
+          "zeroDowntime": true
+        },
+        "mounts": []
+      }
+    }
+  ]
+}
+```
+3. **Instale o worker do N8N**
+
+```json
+{
+  "services": [
+    {
+      "type": "app",
+      "data": {
+        "projectName": "n8n_worker",
+        "serviceName": "n8n_worker",
+        "source": {
+          "type": "image",
+          "image": "n8nio/n8n:latest"
+        },
+        "domains": [
+          {
+            "host": "$(EASYPANEL_DOMAIN)",
+            "port": 5678
+          }
+        ],
+        "env": "N8N_ENCRYPTION_KEY=qwSYwLlijZOh+FaBHrK0tfGzxG6W/J4O",
+         "deploy": {
+          "replicas": 1,
+          "command": "n8n worker --concurrency=10",
+          "zeroDowntime": true
+        },
+        
         "mounts": []
       }
     }
