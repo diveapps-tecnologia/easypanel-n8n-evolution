@@ -253,7 +253,7 @@ PROXY_PASSWORD=
             "port": 5678
           }
         ],
-        "env": "N8N_ENCRYPTION_KEY=qwSYwLlijZOh+FaBHrK0tfGzxG6W/J4O",
+        "env": "N8N_ENCRYPTION_KEY=5c6f7d37-903d-49d8-b73c-def95eb72243",
          "deploy": {
           "replicas": 1,
           "command": "n8n webhook",
@@ -285,7 +285,7 @@ PROXY_PASSWORD=
             "port": 5678
           }
         ],
-        "env": "N8N_ENCRYPTION_KEY=qwSYwLlijZOh+FaBHrK0tfGzxG6W/J4O",
+        "env": "N8N_ENCRYPTION_KEY=5c6f7d37-903d-49d8-b73c-def95eb72243",
          "deploy": {
           "replicas": 1,
           "command": "n8n worker --concurrency=10",
